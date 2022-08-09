@@ -15,9 +15,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
             var events = {
                 "change .packlot-line-select": "lot_to_input",
             };
-            packlotline.events = _.extend(
-                packlotline.events, events
-            );
+            packlotline.events = _.extend(packlotline.events, events);
             // Add methods over instanced popup
             // Write the value in the corresponding input
             packlotline.lot_to_input = function (event) {
@@ -29,7 +27,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
                     $input.blur();
                     $input.focus();
                 }
-                $option.prop('selected', function () {
+                $option.prop("selected", function () {
                     return this.defaultSelected;
                 });
             };
@@ -37,5 +35,4 @@ odoo.define("pos_lot_selection.chrome", function (require) {
             return res;
         },
     });
-
 });
