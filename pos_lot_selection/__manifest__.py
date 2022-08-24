@@ -16,8 +16,10 @@
     "qweb": ["static/src/xml/pos.xml"],
     'assets': {
         'point_of_sale.assets': [
-            # 'pos_lot_selection/static/src/js/models.js',
-            # '/pos_lot_selection/static/src/js/chrome.js',
+            'pos_lot_selection/static/src/js/product_lot.js',
+            'pos_lot_selection/static/src/js/product_screen.js',
+            'pos_lot_selection/static/src/js/order_widget.js',
+            'pos_lot_selection/static/src/js/product_lot_popup.js',
             'pos_lot_selection/static/src/css/pos.css',
         ]},
     "application": False,

@@ -1,36 +1,6 @@
-<!-- <templates>
-
-    <t t-extend="PackLotLinePopupWidget">
-        <t t-jquery=".title" t-operation="append">
-            <div class="packlot-select">
-                <t
-                    t-if="widget.options.pack_lot_lines and widget.options.pack_lot_lines.lot_name"
-                >
-                    <select class="packlot-line-select">
-                        <option
-                            disabled=""
-                            selected=""
-                            value=""
-                        >Select a Serial/Lot Number</option>
-                        <t
-                            t-foreach="widget.options.pack_lot_lines.lot_name"
-                            t-as="lot_name"
-                        >
-                            <option t-att-value="lot_name">
-                                <t t-esc="lot_name" />
-                            </option>
-                        </t>
-                    </select>
-                </t>
-            </div>
-        </t>
-    </t>
-
-</templates> -->
-
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    <t t-name="mpl_pos_multi_lot.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+    <t t-name="pos_lot_selection.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
         <xpath expr="//WrappedProductNameLines" position="after">
             <t t-esc="line.pack_product_lot"/>
         </xpath>
@@ -43,15 +13,14 @@
                 </header>
                 <main class="body">
                     <select id="product_lot_select" class="popup-input">
-                        <option value="">Select Lot ID</option>
+                        <option value="">Select a Serial/Lot Number</option>
                         <t t-foreach="props.lot_data" t-as="lot">
                             <t t-set="display_name" t-value="props.lot_data[lot].display_name"/>
                             <t t-esc="props.selected_lot == display_name"/>
                             <t t-if="props.selected_lot == display_name">
                                 <option t-att-value="display_name"
                                         selected="props.selected_lot == display_name">
-                                    <t t-esc="display_name"/> -- (<t
-                                        t-esc="props.lot_data[lot].product_qty"/>)
+                                    <t t-esc="display_name"/> -- (<t t-esc="props.lot_data[lot].product_qty"/>)
                                 </option>
                             </t>
                             <t t-else="">
@@ -64,11 +33,11 @@
                     </select>
                 </main>
                 <footer class="footer">
-                    <div class="button confirm" t-on-click="confirm">
-                        <t t-esc="props.confirmText"/>
-                    </div>
                     <div class="button cancel" t-on-click="cancel">
                         <t t-esc="props.cancelText"/>
+                    </div>
+                    <div class="button confirm" t-on-click="confirm">
+                        <t t-esc="props.confirmText"/>
                     </div>
                 </footer>
             </div>
