@@ -10,3 +10,8 @@ class POSSession(models.Model):
         res = super()._loader_params_res_users()
         res["search_params"]["fields"].extend(["pos_trigram"])
         return res
+
+    def _loader_params_hr_employee(self):
+        res = super()._loader_params_hr_employee()
+        res["search_params"]["fields"].extend(["pos_trigram"])
+        return res

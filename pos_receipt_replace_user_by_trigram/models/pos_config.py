@@ -8,5 +8,5 @@ class PosConfig(models.Model):
     _inherit = "pos.config"
 
     replace_user_by_trigram = fields.Boolean(
-        default=False, string="Replace User by trigram in POS receipt"
+        default=True, string="Replace User by trigram in POS receipt"
     )

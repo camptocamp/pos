@@ -11,7 +11,7 @@
     "installable": True,
     "version": "16.0.1.0.0",
     "depends": [
-        "point_of_sale",
+        "pos_hr",
         "partner_firstname",
     ],
     "assets": {
