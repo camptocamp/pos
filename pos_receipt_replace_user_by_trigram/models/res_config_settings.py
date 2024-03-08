@@ -8,5 +8,5 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     pos_replace_user_by_trigram = fields.Boolean(
-        related="pos_config_id.replace_user_by_trigram", readonly=False
+        related="pos_config_id.replace_user_by_trigram", readonly=False, default=True
     )

@@ -6,12 +6,12 @@ from odoo import api, fields, models
 from .. import utils
 
 
-class ResUsers(models.Model):
-    _inherit = "res.users"
+class ResPartner(models.Model):
+    _inherit = "res.partner"
 
     pos_trigram = fields.Char(compute="_compute_pos_trigram")
 
     @api.depends("firstname", "lastname")
     def _compute_pos_trigram(self):
-        for user in self:
-            user.pos_trigram = utils.get_trigram(user.firstname, user.lastname)
+        for partner in self:
+            partner.pos_trigram = utils.get_trigram(partner.firstname, partner.lastname)
