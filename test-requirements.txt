@@ -1,0 +1,1 @@
+odoo-addon-pos_partner_pricelist_load_background@ git+https://github.com/OCA/pos.git@refs/pull/1243/head#subdirectory=setup/pos_partner_pricelist_load_background
