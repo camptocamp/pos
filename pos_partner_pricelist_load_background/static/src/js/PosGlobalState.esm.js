@@ -25,12 +25,21 @@ const PosPartnerPricelistLoadBackgroundSPosGlobalState = (PosGlobalState) =>
                         correspondingProduct,
                         pricelistItem
                     );
-                }
-                if (pricelistItem.product_tmpl_id) {
+                } else if (pricelistItem.product_tmpl_id) {
                     for (const product of Object.values(this.db.product_by_id).filter(
                         (x) => x.product_tmpl_id === pricelistItem.product_tmpl_id[0]
                     )) {
                         this._assignApplicableItems(pricelist, product, pricelistItem);
+                    }
+                } else {
+                    for (const correspondingProduct of Object.values(
+                        this.db.product_by_id
+                    ).filter((x) => x.categ_id)) {
+                        this._assignApplicableItems(
+                            pricelist,
+                            correspondingProduct,
+                            pricelistItem
+                        );
                     }
                 }
             }
